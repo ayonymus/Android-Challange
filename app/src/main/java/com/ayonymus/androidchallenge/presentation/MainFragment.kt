@@ -5,16 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ayonymus.androidchallenge.App
 import com.ayonymus.androidchallenge.R
+import com.ayonymus.androidchallenge.domain.MockData
 import com.ayonymus.androidchallenge.presentation.listitems.SingleTextItem
+import com.ayonymus.androidchallenge.usecase.DataState
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.fragment_main.*
+import timber.log.Timber
 import javax.inject.Inject
 
 class MainFragment: Fragment() {
@@ -40,8 +44,35 @@ class MainFragment: Fragment() {
             adapter = groupAdapter
         }
         // this is displayed until no other items are added to section
-        mainSection.setPlaceholder(SingleTextItem(R.string.loading))
+        mainSection.setPlaceholder(SingleTextItem(getString(R.string.loading)))
         groupAdapter.add(mainSection)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.getData().observe(this,
+            Observer { state ->  when(state) {
+                is DataState.Loading -> showLoading()
+                is DataState.Failure -> showError()
+                is DataState.Success -> displayData(state.data)
+            }
+            }
+        )
+    }
+
+    private fun displayData(data: MockData) {
+        Timber.v(data.toString())
+        mainSection.update(data.data.map { SingleTextItem(it) })
+        groupAdapter.notifyDataSetChanged()
+    }
+
+    private fun showLoading() {
+        Timber.v("Loading") // TODO show loading
+    }
+
+    private fun showError() {
+        Timber.v("Error") // TODO show loading
     }
 
 }

@@ -9,7 +9,7 @@ import javax.inject.Singleton
 import kotlin.reflect.KClass
 
 /**
- * ViewModewlFactory for easy injections to view models
+ * ViewModelFactory for easy injections of view models
  *
  * Based on
  * https://github.com/googlesamples/android-architecture-components/blob/master/GithubBrowserSample/app/src/main/java/com/android/example/github/viewmodel/GithubViewModelFactory.kt
