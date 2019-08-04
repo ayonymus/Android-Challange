@@ -1,6 +1,6 @@
 package com.ayonymus.androidchallenge.di
 
-import com.ayonymus.androidchallenge.MainActivity
+import com.ayonymus.androidchallenge.presentation.MainFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -10,6 +10,6 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
 
-    fun inject(activity: MainActivity)
+    fun inject(fragment: MainFragment)
 
 }
