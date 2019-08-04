@@ -28,7 +28,10 @@ ext {
 
     //rx
     rxJavaVersion = '2.1.10'
-    rxAndroidVersion = '2.1.0'
+    rxAndroidVersion = '2.1.1'
+
+    // testing
+    mockitoKotlinVersion = '2.0.0-RC2'
 
     // quality tools
     leak_version = '2.0-alpha-3'
@@ -52,10 +55,11 @@ dependencies {
 
     // test
     testImplementation 'junit:junit:4.12'
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
 
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
+    
     // quality tools
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_version"
     implementation "com.jakewharton.timber:timber:$timber_version"

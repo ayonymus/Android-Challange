@@ -1,10 +1,9 @@
 package com.ayonymus.androidchallenge.domain
 
-import io.reactivex.Observable
-
+import io.reactivex.Single
 
 interface Repository<T> {
 
-    fun getData(): Observable<T>
+    fun getData(): Single<T>
 
 }
