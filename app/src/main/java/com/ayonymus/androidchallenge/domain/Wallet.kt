@@ -1,3 +1,3 @@
 package com.ayonymus.androidchallenge.domain
 
-data class Wallet(val data: List<String>)
+data class Wallet(val data: List<Transaction>)

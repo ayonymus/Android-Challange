@@ -63,7 +63,7 @@ class MainFragment: Fragment() {
 
     private fun displayData(data: Wallet) {
         Timber.v(data.toString())
-        mainSection.update(data.data.map { SingleTextItem(it) })
+        mainSection.update(data.data.map { SingleTextItem(it.hash) })
         groupAdapter.notifyDataSetChanged()
     }
 
