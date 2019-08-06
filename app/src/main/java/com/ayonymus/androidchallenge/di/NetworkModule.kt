@@ -1,6 +1,7 @@
 package com.ayonymus.androidchallenge.di
 
 import com.ayonymus.androidchallenge.BuildConfig
+import com.ayonymus.androidchallenge.framework.BlockchainApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -15,7 +16,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    internal fun provideLogingInterceptor(): HttpLoggingInterceptor {
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
             level = when {
                 BuildConfig.DEBUG -> HttpLoggingInterceptor.Level.BODY
@@ -25,7 +26,7 @@ class NetworkModule {
     }
 
     @Provides
-    internal fun retrofitBuilder(interceptor: HttpLoggingInterceptor): Retrofit.Builder {
+    fun retrofitBuilder(interceptor: HttpLoggingInterceptor): Retrofit {
         return Retrofit.Builder()
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
@@ -34,6 +35,12 @@ class NetworkModule {
                     .addInterceptor(interceptor)
                     .build()
             )
+            .baseUrl("https://blockchain.info/")
+            .build()
     }
+
+    @Provides
+    fun provideBlockchainApi(retrofit: Retrofit) = retrofit.create(BlockchainApi::class.java)
+
 
 }
