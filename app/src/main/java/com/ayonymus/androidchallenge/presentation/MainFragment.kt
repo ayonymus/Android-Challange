@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ayonymus.androidchallenge.App
 import com.ayonymus.androidchallenge.R
-import com.ayonymus.androidchallenge.domain.MockData
+import com.ayonymus.androidchallenge.domain.Wallet
 import com.ayonymus.androidchallenge.presentation.listitems.SingleTextItem
 import com.ayonymus.androidchallenge.usecase.DataState
 import com.google.android.material.snackbar.Snackbar
@@ -61,7 +61,7 @@ class MainFragment: Fragment() {
             })
     }
 
-    private fun displayData(data: MockData) {
+    private fun displayData(data: Wallet) {
         Timber.v(data.toString())
         mainSection.update(data.data.map { SingleTextItem(it) })
         groupAdapter.notifyDataSetChanged()
