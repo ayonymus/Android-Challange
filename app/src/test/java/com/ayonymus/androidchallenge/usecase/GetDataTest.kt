@@ -12,7 +12,7 @@ import java.io.IOException
 
 internal class GetDataTest {
 
-    private val data = Wallet(listOf("lol", "lel"))
+    private val data = mock<Wallet> { }
 
     private val repository = mock<Repository<Wallet>> {
         on { getData() } doReturn Single.just(data)
