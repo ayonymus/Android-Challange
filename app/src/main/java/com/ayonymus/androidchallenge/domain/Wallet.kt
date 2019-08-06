@@ -1,3 +1,7 @@
 package com.ayonymus.androidchallenge.domain
 
-data class Wallet(val data: List<Transaction>)
+import java.math.BigDecimal
+
+data class Wallet(
+    val balance: BigDecimal,
+    val data: List<Transaction>)

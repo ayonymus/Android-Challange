@@ -51,19 +51,17 @@ class MainFragment: Fragment() {
 
     override fun onResume() {
         super.onResume()
-
-        viewModel.getData().observe(this,
-            Observer { state ->  when(state) {
-                is DataState.Loading -> showLoading()
-                is DataState.Failure -> showError()
-                is DataState.Success -> displayData(state.data)
-            }
-            })
+        viewModel.getData().observe(this, Observer { state ->  when(state) {
+            is DataState.Loading -> showLoading()
+            is DataState.Failure -> showError()
+            is DataState.Success -> displayData(state.data)
+        } })
     }
 
     private fun displayData(data: Wallet) {
         Timber.v(data.toString())
-        mainSection.update(data.data.map { SingleTextItem(it.hash) })
+        mainSection.setHeader(SingleTextItem("Balance: " + data.balance, R.style.TextAppearance_AppCompat_Title))
+        mainSection.update(data.data.map { SingleTextItem(it.value.toString()) })
         groupAdapter.notifyDataSetChanged()
     }
 

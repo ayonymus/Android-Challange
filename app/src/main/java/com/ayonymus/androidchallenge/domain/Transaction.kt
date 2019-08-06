@@ -1,6 +1,12 @@
 package com.ayonymus.androidchallenge.domain
 
-data class Transaction(val result: Int,
+import java.math.BigDecimal
+
+data class Transaction(val value: BigDecimal,
+                       val direction: Direction,
                        val time: Long,
-                       val hash: String,
-                       val fee: Int)
+                       val fee: BigDecimal)
+
+enum class Direction {
+    IN, OUT
+}
