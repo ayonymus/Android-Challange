@@ -14,6 +14,7 @@ import com.ayonymus.androidchallenge.R
 import com.ayonymus.androidchallenge.domain.MockData
 import com.ayonymus.androidchallenge.presentation.listitems.SingleTextItem
 import com.ayonymus.androidchallenge.usecase.DataState
+import com.google.android.material.snackbar.Snackbar
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
@@ -57,8 +58,7 @@ class MainFragment: Fragment() {
                 is DataState.Failure -> showError()
                 is DataState.Success -> displayData(state.data)
             }
-            }
-        )
+            })
     }
 
     private fun displayData(data: MockData) {
@@ -72,7 +72,8 @@ class MainFragment: Fragment() {
     }
 
     private fun showError() {
-        Timber.v("Error") // TODO show loading
+        Snackbar.make(main_fragment_layout, R.string.error, Snackbar.LENGTH_LONG).show()
+        Timber.v("Error")
     }
 
 }
