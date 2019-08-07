@@ -29,7 +29,7 @@ class TransactionItem(private val transaction: Transaction): Item() {
 
     companion object {
         // This is not the best solution for internationalization. Maybe jodatime would be better.
-        private val dateFormat = SimpleDateFormat("MM/dd/yyyy HH:mm", Locale.UK)
+        private val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.UK)
     }
 
 }
