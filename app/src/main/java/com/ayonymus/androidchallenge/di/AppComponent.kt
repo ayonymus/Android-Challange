@@ -7,6 +7,8 @@ import javax.inject.Singleton
 @Component(modules = [
     AndroidModule::class,
     DataModule::class,
+    FrameworkModule::class,
+    NetworkModule::class,
     ViewModelModule::class
 ])
 @Singleton

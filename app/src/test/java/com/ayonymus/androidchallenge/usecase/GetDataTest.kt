@@ -1,6 +1,6 @@
 package com.ayonymus.androidchallenge.usecase
 
-import com.ayonymus.androidchallenge.domain.Wallet
+import com.ayonymus.androidchallenge.domain.BitcoinWallet
 import com.ayonymus.androidchallenge.domain.Repository
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
@@ -12,9 +12,9 @@ import java.io.IOException
 
 internal class GetDataTest {
 
-    private val data = mock<Wallet> { }
+    private val data = mock<BitcoinWallet> { }
 
-    private val repository = mock<Repository<Wallet>> {
+    private val repository = mock<Repository<BitcoinWallet>> {
         on { getData() } doReturn Single.just(data)
     }
 

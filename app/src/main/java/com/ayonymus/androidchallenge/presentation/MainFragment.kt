@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ayonymus.androidchallenge.App
 import com.ayonymus.androidchallenge.R
-import com.ayonymus.androidchallenge.domain.Wallet
+import com.ayonymus.androidchallenge.domain.BitcoinWallet
 import com.ayonymus.androidchallenge.presentation.listitems.SingleTextItem
 import com.ayonymus.androidchallenge.usecase.DataState
 import com.google.android.material.snackbar.Snackbar
@@ -58,7 +58,7 @@ class MainFragment: Fragment() {
         } })
     }
 
-    private fun displayData(data: Wallet) {
+    private fun displayData(data: BitcoinWallet) {
         Timber.v(data.toString())
         mainSection.setHeader(SingleTextItem("Balance: " + data.balance, R.style.TextAppearance_AppCompat_Title))
         mainSection.update(data.data.map { SingleTextItem(it.value.toString()) })

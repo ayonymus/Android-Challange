@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.ayonymus.androidchallenge.usecase.DataState
 import com.ayonymus.androidchallenge.usecase.GetData
 import io.reactivex.BackpressureStrategy
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 /**
@@ -17,9 +19,12 @@ import javax.inject.Inject
  */
 class MainFragmentViewModel @Inject constructor(getData: GetData): ViewModel() {
 
-    // LiveDataReactiveStreams bridges Rx and LiveData without the need of explicit thread switching
+    // LiveDataReactiveStreams bridges Rx and LiveData
     private val liveData = LiveDataReactiveStreams.fromPublisher(
-        getData.invoke().toFlowable(BackpressureStrategy.BUFFER))
+        getData.invoke()
+            .toFlowable(BackpressureStrategy.BUFFER)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()))
 
     fun getData(): LiveData<DataState> = liveData
 
