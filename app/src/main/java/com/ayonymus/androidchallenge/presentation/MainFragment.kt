@@ -61,7 +61,7 @@ class MainFragment: Fragment() {
 
     private fun displayData(data: BitcoinWallet) {
         Timber.v(data.toString())
-        toolbar.title = getString(R.string.balance, data.balance)
+        toolbar.title = getString(R.string.balance, data.balance.satoshiToBtc())
         mainSection.update(data.data.map { TransactionItem(it) })
         groupAdapter.notifyDataSetChanged()
     }
