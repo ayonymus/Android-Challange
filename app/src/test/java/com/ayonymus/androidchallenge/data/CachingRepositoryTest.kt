@@ -1,5 +1,6 @@
 package com.ayonymus.androidchallenge.data
 
+import com.ayonymus.androidchallenge.domain.repository.DataSource
 import com.nhaarman.mockitokotlin2.*
 import io.reactivex.Single
 import org.junit.Before

@@ -1,7 +1,7 @@
 package com.ayonymus.androidchallenge.framework
 
-import com.ayonymus.androidchallenge.domain.BitcoinWallet
-import com.ayonymus.androidchallenge.domain.Transaction
+import com.ayonymus.androidchallenge.domain.entity.BitcoinWallet
+import com.ayonymus.androidchallenge.domain.entity.Transaction
 import javax.inject.Inject
 
 /**
@@ -14,7 +14,7 @@ class BitcoinWalletMapper @Inject constructor() {
         return BitcoinWallet(
             response.wallet.final_balance,
             response.txs.map { tx ->
-                    Transaction(tx.result, tx.hash, tx.time, tx.fee)
+                Transaction(tx.result, tx.hash, tx.time, tx.fee)
             })
     }
 }

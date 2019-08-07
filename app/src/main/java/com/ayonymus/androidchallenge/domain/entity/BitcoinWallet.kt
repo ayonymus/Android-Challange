@@ -1,4 +1,6 @@
-package com.ayonymus.androidchallenge.domain
+package com.ayonymus.androidchallenge.domain.entity
+
+import com.ayonymus.androidchallenge.domain.entity.Transaction
 
 /**
  *

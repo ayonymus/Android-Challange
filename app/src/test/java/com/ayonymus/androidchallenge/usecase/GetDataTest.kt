@@ -1,7 +1,7 @@
 package com.ayonymus.androidchallenge.usecase
 
-import com.ayonymus.androidchallenge.domain.BitcoinWallet
-import com.ayonymus.androidchallenge.domain.Repository
+import com.ayonymus.androidchallenge.domain.entity.BitcoinWallet
+import com.ayonymus.androidchallenge.domain.repository.Repository
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever

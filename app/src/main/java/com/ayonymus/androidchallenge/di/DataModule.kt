@@ -1,9 +1,9 @@
 package com.ayonymus.androidchallenge.di
 
 import com.ayonymus.androidchallenge.data.CachingRepository
-import com.ayonymus.androidchallenge.data.DataSource
-import com.ayonymus.androidchallenge.domain.BitcoinWallet
-import com.ayonymus.androidchallenge.domain.Repository
+import com.ayonymus.androidchallenge.domain.repository.DataSource
+import com.ayonymus.androidchallenge.domain.entity.BitcoinWallet
+import com.ayonymus.androidchallenge.domain.repository.Repository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

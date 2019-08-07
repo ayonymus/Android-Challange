@@ -1,7 +1,7 @@
 package com.ayonymus.androidchallenge.framework
 
-import com.ayonymus.androidchallenge.data.DataSource
-import com.ayonymus.androidchallenge.domain.BitcoinWallet
+import com.ayonymus.androidchallenge.domain.repository.DataSource
+import com.ayonymus.androidchallenge.domain.entity.BitcoinWallet
 import io.reactivex.Single
 import javax.inject.Inject
 

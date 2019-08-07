@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ayonymus.androidchallenge.App
 import com.ayonymus.androidchallenge.R
-import com.ayonymus.androidchallenge.domain.BitcoinWallet
+import com.ayonymus.androidchallenge.domain.entity.BitcoinWallet
 import com.ayonymus.androidchallenge.presentation.listitems.SingleTextItem
 import com.ayonymus.androidchallenge.usecase.DataState
 import com.google.android.material.snackbar.Snackbar

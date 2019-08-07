@@ -1,4 +1,4 @@
-package com.ayonymus.androidchallenge.data
+package com.ayonymus.androidchallenge.domain.repository
 
 import io.reactivex.Single
 

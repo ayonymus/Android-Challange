@@ -1,7 +1,7 @@
 package com.ayonymus.androidchallenge.framework
 
-import com.ayonymus.androidchallenge.domain.BitcoinWallet
-import com.ayonymus.androidchallenge.domain.Transaction
+import com.ayonymus.androidchallenge.domain.entity.BitcoinWallet
+import com.ayonymus.androidchallenge.domain.entity.Transaction
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
@@ -44,7 +44,16 @@ internal class BitcoinWalletMapperTest {
 
     @Test
     fun `given an api response with transactions then return expected BitcoinWallet`() {
-        val expected = BitcoinWallet(balance, listOf(Transaction(result, hash, time, fee)))
+        val expected = BitcoinWallet(
+            balance, listOf(
+                Transaction(
+                    result,
+                    hash,
+                    time,
+                    fee
+                )
+            )
+        )
 
         val result = mapper.map(response)
         assertEquals(expected, result)

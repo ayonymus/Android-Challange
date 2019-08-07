@@ -1,7 +1,7 @@
 package com.ayonymus.androidchallenge.usecase
 
-import com.ayonymus.androidchallenge.domain.BitcoinWallet
-import com.ayonymus.androidchallenge.domain.Repository
+import com.ayonymus.androidchallenge.domain.entity.BitcoinWallet
+import com.ayonymus.androidchallenge.domain.repository.Repository
 import io.reactivex.Observable
 import javax.inject.Inject
 

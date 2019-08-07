@@ -1,6 +1,6 @@
 package com.ayonymus.androidchallenge.usecase
 
-import com.ayonymus.androidchallenge.domain.BitcoinWallet
+import com.ayonymus.androidchallenge.domain.entity.BitcoinWallet
 
 sealed class DataState {
 

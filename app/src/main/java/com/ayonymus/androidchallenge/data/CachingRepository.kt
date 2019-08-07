@@ -1,6 +1,7 @@
 package com.ayonymus.androidchallenge.data
 
-import com.ayonymus.androidchallenge.domain.Repository
+import com.ayonymus.androidchallenge.domain.repository.DataSource
+import com.ayonymus.androidchallenge.domain.repository.Repository
 import io.reactivex.Single
 
 /**
@@ -9,7 +10,8 @@ import io.reactivex.Single
  *
  * In order for the caching to work, this class must be a singleton in the current setup.
  */
-class CachingRepository<T>(private val dataSource: DataSource<T>): Repository<T>{
+class CachingRepository<T>(private val dataSource: DataSource<T>):
+    Repository<T> {
 
     private var cache: T? = null
 
