@@ -38,8 +38,11 @@
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:clipChildren="false"
         app:layoutManager="LinearLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:listitem="@layout/item_transaction" />
+        tools:listitem="@layout/item_transaction"
+        android:elevation="0dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
