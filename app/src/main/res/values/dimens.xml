@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="list_margin">16dp</dimen>
+
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="list_item_padding">8dp</dimen>
+    <dimen name="top_spacer">16dp</dimen>
+    <dimen name="internal_pacer">8dp</dimen>
+
+    <dimen name="cardview_radius">8dp</dimen>
+    <dimen name="cardview_elevation">2dp</dimen>
+    <dimen name="collapsing_bar_height">120dp</dimen>
+
 </resources>

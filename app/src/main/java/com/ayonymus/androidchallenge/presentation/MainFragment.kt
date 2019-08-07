@@ -13,6 +13,7 @@ import com.ayonymus.androidchallenge.App
 import com.ayonymus.androidchallenge.R
 import com.ayonymus.androidchallenge.domain.entity.BitcoinWallet
 import com.ayonymus.androidchallenge.presentation.listitems.SingleTextItem
+import com.ayonymus.androidchallenge.presentation.listitems.TransactionItem
 import com.ayonymus.androidchallenge.usecase.DataState
 import com.google.android.material.snackbar.Snackbar
 import com.xwray.groupie.GroupAdapter
@@ -60,8 +61,8 @@ class MainFragment: Fragment() {
 
     private fun displayData(data: BitcoinWallet) {
         Timber.v(data.toString())
-        mainSection.setHeader(SingleTextItem("Balance: " + data.balance, R.style.TextAppearance_AppCompat_Title))
-        mainSection.update(data.data.map { SingleTextItem(it.value.toString()) })
+        toolbar.title = getString(R.string.balance, data.balance)
+        mainSection.update(data.data.map { TransactionItem(it) })
         groupAdapter.notifyDataSetChanged()
     }
 
