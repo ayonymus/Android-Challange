@@ -8,6 +8,7 @@ import com.ayonymus.androidchallenge.usecase.DataState
 import com.ayonymus.androidchallenge.usecase.GetData
 import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 /**
@@ -25,8 +26,9 @@ class MainFragmentViewModel @Inject constructor(private val getData: GetData,
     fun loadData(reload: Boolean = false) {
         val data = liveData.value
         if(data == null || data is DataState.Failure || reload) {
-            disposables.add(getData.invoke()
+            disposables.add(getData.invoke(reload)
                 .subscribeOn(schedulers.io())
+                .debounce(DEBOUNCE, TimeUnit.MICROSECONDS)
                 .observeOn(schedulers.main())
                 .subscribe( { state ->
                     Timber.v(state.toString())
@@ -43,6 +45,10 @@ class MainFragmentViewModel @Inject constructor(private val getData: GetData,
     override fun onCleared() {
         disposables.clear()
         super.onCleared()
+    }
+
+    companion object {
+        private const val DEBOUNCE = 300L
     }
 
 }

@@ -4,6 +4,6 @@ import io.reactivex.Single
 
 interface Repository<T> {
 
-    fun getData(): Single<T>
+    fun getData(refresh: Boolean = false): Single<T>
 
 }

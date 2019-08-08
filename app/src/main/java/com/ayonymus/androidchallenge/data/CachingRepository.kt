@@ -15,7 +15,7 @@ class CachingRepository<T>(private val dataSource: DataSource<T>):
 
     private var cache: T? = null
 
-    override fun getData(): Single<T> = if(cache == null) {
+    override fun getData(refresh: Boolean): Single<T> = if(cache == null || refresh) {
         dataSource.getData()
             .doOnSuccess { cache = it }
     } else {

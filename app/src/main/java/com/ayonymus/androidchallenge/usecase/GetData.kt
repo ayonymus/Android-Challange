@@ -11,8 +11,8 @@ import javax.inject.Inject
  */
 class GetData @Inject constructor(private val repository: Repository<BitcoinWallet>) {
 
-    fun invoke(): Observable<DataState> {
-        return repository.getData()
+    fun invoke(refresh: Boolean = false): Observable<DataState> {
+        return repository.getData(refresh)
             .toObservable()
             .map<DataState> { DataState.Success(it) }
             .startWith(DataState.Loading)

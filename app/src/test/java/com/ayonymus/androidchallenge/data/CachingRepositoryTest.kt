@@ -40,4 +40,14 @@ internal class CachingRepositoryTest {
         verify(source, times(1)).getData()
     }
 
+    @Test
+    fun `given a data source with data when repository queried with refresh then get data from data source`() {
+
+        val testSingle = repository.getData().test()
+        val testSingle2 = repository.getData(true).test()
+
+        testSingle2.assertValue { it == item }
+        verify(source, times(2)).getData()
+    }
+
 }
