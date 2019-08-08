@@ -46,13 +46,19 @@ class MainFragment: Fragment() {
             adapter = groupAdapter
         }
         // this is displayed until no other items are added to section
-        mainSection.setPlaceholder(SingleTextItem(getString(R.string.loading)))
         groupAdapter.add(mainSection)
+
+        fab.setOnClickListener { viewModel.loadData(true) }
     }
 
     override fun onResume() {
         super.onResume()
-        viewModel.getData().observe(this, Observer { state ->  when(state) {
+        observeLiveData()
+        viewModel.loadData()
+    }
+
+    private fun observeLiveData() {
+        viewModel.liveData().observe(this, Observer { state ->  when(state) {
             is DataState.Loading -> showLoading()
             is DataState.Failure -> showError()
             is DataState.Success -> displayData(state.data)
@@ -67,12 +73,13 @@ class MainFragment: Fragment() {
     }
 
     private fun showLoading() {
-        Timber.v("Loading") // TODO show loading
+        Timber.v("Loading")
+        mainSection.setPlaceholder(SingleTextItem(getString(R.string.loading)))
     }
 
     private fun showError() {
         Snackbar.make(main_fragment_layout, R.string.error, Snackbar.LENGTH_LONG).show()
-        Timber.v("Error")
+        mainSection.removePlaceholder()
     }
 
 }
