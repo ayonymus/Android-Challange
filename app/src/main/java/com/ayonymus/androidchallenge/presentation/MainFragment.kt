@@ -17,7 +17,7 @@ import com.ayonymus.androidchallenge.usecase.DataState
 import com.google.android.material.snackbar.Snackbar
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
-import com.xwray.groupie.kotlinandroidextensions.ViewHolder
+import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import kotlinx.android.synthetic.main.fragment_main.*
 import timber.log.Timber
 import javax.inject.Inject
@@ -29,7 +29,7 @@ class MainFragment: Fragment() {
 
     private lateinit var viewModel: MainFragmentViewModel
 
-    private val groupAdapter = GroupAdapter<ViewHolder>()
+    private val groupAdapter = GroupAdapter<GroupieViewHolder>()
     private val mainSection = Section()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
