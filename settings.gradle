@@ -1,4 +1,6 @@
+
 include ':app',
+        ':features:marvel',
         ':features:mockfeature',
         ':libraries:core',
         ':libraries:repository'

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ayon.mockfeature.R
 import com.ayon.mockfeature.domain.MockData
-import com.ayon.mockfeature.presentation.listitems.SingleTextItem
+import com.ayon.core.view.listitems.SingleTextItem
 import com.ayon.mockfeature.domain.DataState
 import com.google.android.material.snackbar.Snackbar
 import com.xwray.groupie.GroupAdapter

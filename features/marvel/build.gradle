@@ -29,10 +29,18 @@ android {
 }
 
 dependencies {
+    implementation project(':libraries:core')
+    implementation project(':libraries:repository')
+
+    implementation "$And.constraintlayout"
+    implementation "$And.recyclerview"
+    implementation "$And.lifecycle_ext"
+    implementation "$And.lifecycle_reacitve"
+    implementation "$And.material"
+
     // android x
     implementation "$And.lifecycle_ext"
     implementation "$And.lifecycle_reacitve"
-    implementation "$And.recyclerview"
 
     // dagger
     kapt "$Dagger.compiler"
@@ -40,12 +48,22 @@ dependencies {
     implementation "$Dagger.dagger"
     implementation "$Dagger.android_support"
 
+    // rx
+    implementation "$Rx.java"
+    implementation "$Rx.android"
+
+    // recycler
     implementation "$Libs.groupie"
     implementation "$Libs.groupie_ext"
+
+    // network
+    implementation "$Retrofit.retrofit2"
+    implementation "$Retrofit.retrofit2_rx"
+    implementation "$Retrofit.retrofit2_gson"
+    implementation "$Retrofit.okhttp3"
 
     implementation "$Debug.timber"
 
     testImplementation "$TestLibs.junit"
     testImplementation "$TestLibs.mockito_kotlin"
 }
-
