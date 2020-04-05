@@ -1,6 +1,4 @@
-package com.ayon.androidchallenge.usecase
-
-import com.ayon.androidchallenge.domain.MockData
+package com.ayon.mockfeature.domain
 
 sealed class DataState {
 

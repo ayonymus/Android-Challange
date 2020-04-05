@@ -1,6 +1,6 @@
-package com.ayon.androidchallenge.presentation.listitems
+package com.ayon.mockfeature.presentation.listitems
 
-import com.ayon.androidchallenge.R
+import com.ayon.mockfeature.R
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.item_single_text.view.*

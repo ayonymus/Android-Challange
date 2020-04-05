@@ -1,6 +1,6 @@
-package com.ayon.androidchallenge.di
+package com.ayon.mockfeature.di
 
-import com.ayon.androidchallenge.domain.MockData
+import com.ayon.mockfeature.domain.MockData
 import com.ayon.repository.datasource.DataSource
 import dagger.Module
 import dagger.Provides
@@ -17,7 +17,9 @@ class MockDataModule {
     @Provides
     fun provideMockDataSource() = object :
         DataSource<MockData> {
-        override fun getData(): Observable<MockData> = Observable.just(MockData(List(100) { "Item $it" }))
+        override fun getData(): Observable<MockData> = Observable.just(
+            MockData(List(100) { "Item $it" })
+        )
             .delay(1, TimeUnit.SECONDS)
     }
 

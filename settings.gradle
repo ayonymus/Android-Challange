@@ -1,3 +1,4 @@
 include ':app',
+        ':features:mockfeature',
         ':libraries:core',
         ':libraries:repository'

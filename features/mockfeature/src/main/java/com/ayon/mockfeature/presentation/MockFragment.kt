@@ -1,18 +1,16 @@
-package com.ayon.androidchallenge.presentation
+package com.ayon.mockfeature.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ayon.androidchallenge.App
-import com.ayon.androidchallenge.R
-import com.ayon.androidchallenge.domain.MockData
-import com.ayon.androidchallenge.presentation.listitems.SingleTextItem
-import com.ayon.androidchallenge.usecase.DataState
+import com.ayon.mockfeature.R
+import com.ayon.mockfeature.domain.MockData
+import com.ayon.mockfeature.presentation.listitems.SingleTextItem
+import com.ayon.mockfeature.domain.DataState
 import com.google.android.material.snackbar.Snackbar
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
@@ -22,19 +20,19 @@ import kotlinx.android.synthetic.main.fragment_main.*
 import timber.log.Timber
 import javax.inject.Inject
 
-class MainFragment: DaggerFragment() {
+class MockFragment: DaggerFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var viewModel: MainFragmentViewModel
+    private lateinit var viewModel: MockFragmentViewModel
 
     private val groupAdapter = GroupAdapter<GroupieViewHolder>()
     private val mainSection = Section()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(MainFragmentViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MockFragmentViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

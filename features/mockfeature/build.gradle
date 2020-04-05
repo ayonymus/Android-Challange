@@ -1,15 +1,13 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-
 
 android {
     compileSdkVersion Sdk.compileSdk
     buildToolsVersion Sdk.buildTools
 
     defaultConfig {
-        applicationId "com.ayon.androidchallenge"
         minSdkVersion Sdk.minSdk
         targetSdkVersion Sdk.targetSdk
         versionCode 1
@@ -31,18 +29,18 @@ android {
 }
 
 dependencies {
-    // modules
-    implementation project(':features:mockfeature')
     implementation project(':libraries:core')
     implementation project(':libraries:repository')
 
-    // android x
-    implementation "$And.core_ktx"
     implementation "$And.constraintlayout"
     implementation "$And.recyclerview"
     implementation "$And.lifecycle_ext"
     implementation "$And.lifecycle_reacitve"
     implementation "$And.material"
+
+    // android x
+    implementation "$And.lifecycle_ext"
+    implementation "$And.lifecycle_reacitve"
 
     // dagger
     kapt "$Dagger.compiler"
@@ -58,20 +56,8 @@ dependencies {
     implementation "$Libs.groupie"
     implementation "$Libs.groupie_ext"
 
-    // network
-    implementation "$Retrofit.retrofit2"
-    implementation "$Retrofit.retrofit2_rx"
-    implementation "$Retrofit.retrofit2_gson"
-    implementation "$Retrofit.okhttp3"
+    implementation "$Debug.timber"
 
-    // test
     testImplementation "$TestLibs.junit"
     testImplementation "$TestLibs.mockito_kotlin"
-
-    androidTestImplementation "$TestLibs.android_test_runner"
-    androidTestImplementation "$TestLibs.espresso"
-
-    // quality tools
-    debugImplementation "$Debug.leak"
-    implementation "$Debug.timber"
 }

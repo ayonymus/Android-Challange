@@ -1,6 +1,7 @@
 package com.ayon.androidchallenge.di
 
 import com.ayon.androidchallenge.App
+import com.ayon.mockfeature.di.MockModule
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector

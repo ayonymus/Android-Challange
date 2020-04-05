@@ -1,7 +1,8 @@
-package com.ayon.androidchallenge.usecase
+package com.ayon.mockfeature.domain
 
-import com.ayon.androidchallenge.domain.MockData
-import com.ayon.repository.Repository
+import com.ayon.mockfeature.domain.DataState
+import com.ayon.mockfeature.domain.GetData
+import com.ayon.mockfeature.domain.MockData
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable

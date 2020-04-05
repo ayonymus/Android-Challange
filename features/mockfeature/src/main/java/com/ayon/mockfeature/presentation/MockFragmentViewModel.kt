@@ -1,10 +1,10 @@
-package com.ayon.androidchallenge.presentation
+package com.ayon.mockfeature.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.LiveDataReactiveStreams
 import androidx.lifecycle.ViewModel
-import com.ayon.androidchallenge.usecase.DataState
-import com.ayon.androidchallenge.usecase.GetData
+import com.ayon.mockfeature.domain.DataState
+import com.ayon.mockfeature.domain.GetData
 import io.reactivex.BackpressureStrategy
 import javax.inject.Inject
 
@@ -15,7 +15,7 @@ import javax.inject.Inject
  * Some integration testing could be written with Espresso without mocking this class out
  *
  */
-class MainFragmentViewModel @Inject constructor(getData: GetData): ViewModel() {
+class MockFragmentViewModel @Inject constructor(getData: GetData): ViewModel() {
 
     // LiveDataReactiveStreams bridges Rx and LiveData without the need of explicit thread switching
     private val liveData = LiveDataReactiveStreams.fromPublisher(

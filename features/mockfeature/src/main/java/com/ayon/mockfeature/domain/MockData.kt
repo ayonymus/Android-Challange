@@ -1,3 +1,3 @@
-package com.ayon.androidchallenge.domain
+package com.ayon.mockfeature.domain
 
 data class MockData(val data: List<String>)
