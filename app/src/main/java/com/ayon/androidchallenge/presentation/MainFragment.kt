@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ayon.androidchallenge.App
 import com.ayon.androidchallenge.R
@@ -34,7 +33,7 @@ class MainFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         App.getComponent().inject(this)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainFragmentViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MainFragmentViewModel::class.java)
 
         return inflater.inflate(R.layout.fragment_main, container, false)
     }

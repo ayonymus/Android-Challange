@@ -32,6 +32,7 @@ android {
 
 dependencies {
     // modules
+    implementation project(':libraries:core')
     implementation project(':libraries:repository')
 
     // android x

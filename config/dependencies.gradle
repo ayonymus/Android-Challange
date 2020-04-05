@@ -51,7 +51,8 @@ ext {
 
     Dagger = [
             compiler:           "com.google.dagger:dagger-compiler:$Ver.dagger",
-            dagger:             "com.google.dagger:dagger:$Ver.dagger"
+            dagger:             "com.google.dagger:dagger:$Ver.dagger",
+            android:            "com.google.dagger:dagger-android-processor:$Ver.dagger"
     ]
 
     // retrofit and OkHttp
