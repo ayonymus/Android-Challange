@@ -1,6 +1,5 @@
-package com.ayon.androidchallenge.data
+package com.ayon.repository
 
-import com.ayon.androidchallenge.domain.Repository
 import io.reactivex.Observable
 
 /**
@@ -10,7 +9,7 @@ import io.reactivex.Observable
  *
  * In order for the caching to work, this class must be a singleton in the current setup.
  */
-class SingleSourceCachingRepository<T>(private val dataSource: DataSource<T>): Repository<T>{
+class SingleSourceCachingRepository<T>(private val dataSource: DataSource<T>): Repository<T> {
 
     private var cache: T? = null
 

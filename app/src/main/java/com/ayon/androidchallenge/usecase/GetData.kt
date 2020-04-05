@@ -1,7 +1,7 @@
 package com.ayon.androidchallenge.usecase
 
 import com.ayon.androidchallenge.domain.MockData
-import com.ayon.androidchallenge.domain.Repository
+import com.ayon.repository.Repository
 import io.reactivex.Observable
 import javax.inject.Inject
 

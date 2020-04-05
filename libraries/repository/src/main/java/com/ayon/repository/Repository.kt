@@ -1,8 +1,8 @@
-package com.ayon.androidchallenge.data
+package com.ayon.repository
 
 import io.reactivex.Observable
 
-interface DataSource<T> {
+interface Repository<T> {
 
     fun getData(): Observable<T>
 

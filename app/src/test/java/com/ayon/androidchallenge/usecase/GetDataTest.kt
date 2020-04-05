@@ -1,8 +1,7 @@
 package com.ayon.androidchallenge.usecase
 
 import com.ayon.androidchallenge.domain.MockData
-import com.ayon.androidchallenge.domain.Repository
-import com.nhaarman.mockitokotlin2.doReturn
+import com.ayon.repository.Repository
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
@@ -14,7 +13,7 @@ internal class GetDataTest {
 
     private val data = MockData(listOf("lol", "lel"))
 
-    private val repository = mock<Repository<MockData>> {
+    private val repository = mock<com.ayon.repository.Repository<MockData>> {
         on { getData() } doReturn Observable.just(data)
     }
 

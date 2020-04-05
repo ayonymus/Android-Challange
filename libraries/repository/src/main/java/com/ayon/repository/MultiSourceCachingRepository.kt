@@ -1,4 +1,4 @@
-package com.ayon.androidchallenge.data
+package com.ayon.repository
 
 class MultiSourceCachingRepository {
 }

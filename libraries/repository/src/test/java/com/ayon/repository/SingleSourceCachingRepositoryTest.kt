@@ -1,4 +1,4 @@
-package com.ayon.androidchallenge.data
+package com.ayon.repository
 
 import com.nhaarman.mockitokotlin2.*
 import io.reactivex.Observable
@@ -13,11 +13,11 @@ internal class SingleSourceCachingRepositoryTest {
         on { getData() } doReturn Observable.just(item)
     }
 
-    private lateinit var repository: SingleSourceCachingRepository<String>
+    private lateinit var repository: com.ayon.repository.SingleSourceCachingRepository<String>
 
     @Before
     fun `set up`() {
-        repository = SingleSourceCachingRepository(source)
+        repository = com.ayon.repository.SingleSourceCachingRepository(source)
     }
 
     @Test

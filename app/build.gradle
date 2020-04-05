@@ -31,6 +31,8 @@ android {
 }
 
 dependencies {
+    // modules
+    implementation project(':libraries:repository')
 
     // android x
     implementation "$And.core_ktx"
