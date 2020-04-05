@@ -12,7 +12,7 @@ import javax.inject.Singleton
  * This module provides bindings to repositories
  */
 @Module
-class DataModule {
+class MockDataModule {
 
     @Provides
     fun provideMockDataSource() = object :

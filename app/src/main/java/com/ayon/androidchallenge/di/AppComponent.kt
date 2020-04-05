@@ -1,17 +1,19 @@
 package com.ayon.androidchallenge.di
 
-import com.ayon.androidchallenge.presentation.MainFragment
+import com.ayon.androidchallenge.App
 import dagger.Component
+import dagger.android.AndroidInjectionModule
+import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
-@Component(modules = [
-    AndroidModule::class,
-    DataModule::class,
-    ViewModelModule::class
-])
 @Singleton
-interface AppComponent {
+@Component(
+    modules = [
+        AndroidInjectionModule::class,
+        ApplicationModule::class,
+        MockModule::class ])
+interface AppComponent: AndroidInjector<App> {
 
-    fun inject(fragment: MainFragment)
-
+    @Component.Builder
+    abstract class Builder: AndroidInjector.Builder<App>()
 }
