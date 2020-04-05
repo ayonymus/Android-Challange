@@ -17,6 +17,11 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    compileOptions {
+        sourceCompatibility Sdk.javaVersion
+        targetCompatibility Sdk.javaVersion
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -28,43 +33,42 @@ android {
 dependencies {
 
     // android x
-    implementation "androidx.appcompat:appcompat:$Ver.appcompat"
-    implementation "androidx.core:core-ktx:$Ver.core_ktx"
-    implementation "androidx.constraintlayout:constraintlayout:$Ver.constraint"
-    implementation "androidx.recyclerview:recyclerview:$Ver.recycler"
-    implementation "androidx.lifecycle:lifecycle-extensions:$Ver.lifecycle"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams:$Ver.lifecycle"
-    implementation "com.google.android.material:material:$Ver.material"
+    implementation "$And.core_ktx"
+    implementation "$And.constraintlayout"
+    implementation "$And.recyclerview"
+    implementation "$And.lifecycle_ext"
+    implementation "$And.lifecycle_reacitve"
+    implementation "$And.material"
 
     // dagger
-    kapt "com.google.dagger:dagger-compiler:$Ver.dagger"
-    implementation "com.google.dagger:dagger:$Ver.dagger"
+    kapt "$Dagger.compiler"
+    implementation "$Dagger.dagger"
 
     // kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin"
 
     // rx
-    implementation "io.reactivex.rxjava2:rxjava:$Ver.rxjava"
-    implementation "io.reactivex.rxjava2:rxandroid:$Ver.rxandroid"
+    implementation "$Rx.java"
+    implementation "$Rx.android"
 
     // recycler
-    implementation "com.xwray:groupie:$Ver.groupie"
-    implementation "com.xwray:groupie-kotlin-android-extensions:$Ver.groupie"
+    implementation "$Libs.groupie"
+    implementation "$Libs.groupie_ext"
 
     // network
-    implementation "com.squareup.retrofit2:retrofit:$Ver.retrofit"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$Ver.retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$Ver.retrofit"
-    implementation "com.squareup.okhttp3:logging-interceptor:$Ver.okhttp"
+    implementation "$Retrofit.retrofit2"
+    implementation "$Retrofit.retrofit2_rx"
+    implementation "$Retrofit.retrofit2_gson"
+    implementation "$Retrofit.okhttp3"
 
     // test
-    testImplementation 'junit:junit:4.12'
-    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$Ver.mockito_kotlin"
+    testImplementation "$TestLibs.junit"
+    testImplementation "$TestLibs.mockito_kotlin"
 
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation "$TestLibs.android_test_runner"
+    androidTestImplementation "$TestLibs.espresso"
 
     // quality tools
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:$Ver.leak"
-    implementation "com.jakewharton.timber:timber:$Ver.timber"
+    debugImplementation "$Debug.leak"
+    implementation "$Debug.timber"
 }

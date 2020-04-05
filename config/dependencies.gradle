@@ -9,6 +9,7 @@ ext {
             javaVersion: JavaVersion.VERSION_1_8
     ]
 
+    // library versions
     Ver = [
             // androidx
             appcompat: '1.1.0',
@@ -27,11 +28,61 @@ ext {
             rxandroid: '2.1.1',
 
             // testing
+            android_runner: '1.2.0',
+            espresso: '3.2.0',
+            junit: '4.12',
             mockito_kotlin: '2.2.0',
 
             // quality tools
             leak: '2.2',
             timber: '4.7.1'
+    ]
+
+    // androidx and google libs
+    And = [
+            appcompat:          "androidx.appcompat:appcompat:$Ver.appcompat",
+            core_ktx:			"androidx.core:core-ktx:$Ver.core_ktx",
+            constraintlayout:	"androidx.constraintlayout:constraintlayout:$Ver.constraint",
+            recyclerview:		"androidx.recyclerview:recyclerview:$Ver.recycler",
+            lifecycle_ext:		"androidx.lifecycle:lifecycle-extensions:$Ver.lifecycle",
+            lifecycle_reacitve:	"androidx.lifecycle:lifecycle-reactivestreams:$Ver.lifecycle",
+            material:			"com.google.android.material:material:$Ver.material"
+    ]
+
+    Dagger = [
+            compiler:           "com.google.dagger:dagger-compiler:$Ver.dagger",
+            dagger:             "com.google.dagger:dagger:$Ver.dagger"
+    ]
+
+    // retrofit and OkHttp
+    Retrofit = [
+            retrofit2:          "com.squareup.retrofit2:retrofit:$Ver.retrofit",
+            retrofit2_rx:       "com.squareup.retrofit2:adapter-rxjava2:$Ver.retrofit",
+            retrofit2_gson:     "com.squareup.retrofit2:converter-gson:$Ver.retrofit",
+            okhttp3:            "com.squareup.okhttp3:logging-interceptor:$Ver.okhttp"
+    ]
+
+    Rx = [
+            java:                "io.reactivex.rxjava2:rxjava:$Ver.rxjava",
+            android:             "io.reactivex.rxjava2:rxandroid:$Ver.rxandroid"
+    ]
+
+    // other libs without too many modules
+    Libs = [
+            groupie:            "com.xwray:groupie:$Ver.groupie",
+            groupie_ext:        "com.xwray:groupie-kotlin-android-extensions:$Ver.groupie",
+    ]
+
+    Debug = [
+            leak:               "com.squareup.leakcanary:leakcanary-android:$Ver.leak",
+            timber:             "com.jakewharton.timber:timber:$Ver.timber"
+    ]
+
+    TestLibs = [
+            android_test_runner: "androidx.test:runner:$Ver.android_runner",
+            espresso:           "androidx.test.espresso:espresso-core:$Ver.espresso",
+            junit:              "junit:junit:$Ver.junit",
+            mockito_kotlin:     "com.nhaarman.mockitokotlin2:mockito-kotlin:$Ver.mockito_kotlin"
     ]
 
 }
