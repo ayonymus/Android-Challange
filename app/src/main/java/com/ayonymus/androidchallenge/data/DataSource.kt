@@ -1,9 +1,9 @@
 package com.ayonymus.androidchallenge.data
 
-import io.reactivex.Single
+import io.reactivex.Observable
 
 interface DataSource<T> {
 
-    fun getData(): Single<T>
+    fun getData(): Observable<T>
 
 }

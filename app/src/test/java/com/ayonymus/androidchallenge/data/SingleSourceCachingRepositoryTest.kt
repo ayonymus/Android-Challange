@@ -1,23 +1,23 @@
 package com.ayonymus.androidchallenge.data
 
 import com.nhaarman.mockitokotlin2.*
-import io.reactivex.Single
+import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test
 
-internal class CachingRepositoryTest {
+internal class SingleSourceCachingRepositoryTest {
 
     private val item = "some string"
 
     private val source = mock<DataSource<String>> {
-        on { getData() } doReturn Single.just(item)
+        on { getData() } doReturn Observable.just(item)
     }
 
-    private lateinit var repository: CachingRepository<String>
+    private lateinit var repository: SingleSourceCachingRepository<String>
 
     @Before
     fun `set up`() {
-        repository = CachingRepository(source)
+        repository = SingleSourceCachingRepository(source)
     }
 
     @Test

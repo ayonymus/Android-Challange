@@ -13,7 +13,6 @@ class GetData @Inject constructor(private val repository: Repository<MockData>) 
 
     fun invoke(): Observable<DataState> {
         return repository.getData()
-            .toObservable()
             .map<DataState> { DataState.Success(it) }
             .startWith(DataState.Loading)
             .onErrorReturn { DataState.Failure(it) }
