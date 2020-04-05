@@ -1,11 +1,12 @@
 package com.ayon.repository
 
+import com.ayon.repository.datasource.DataSource
 import com.nhaarman.mockitokotlin2.*
 import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test
 
-internal class SingleSourceCachingRepositoryTest {
+internal class InMemoryCachingRepositoryTest {
 
     private val item = "some string"
 
@@ -13,11 +14,11 @@ internal class SingleSourceCachingRepositoryTest {
         on { getData() } doReturn Observable.just(item)
     }
 
-    private lateinit var repository: com.ayon.repository.SingleSourceCachingRepository<String>
+    private lateinit var repository: com.ayon.repository.InMemoryCachingRepository<String>
 
     @Before
     fun `set up`() {
-        repository = com.ayon.repository.SingleSourceCachingRepository(source)
+        repository = com.ayon.repository.InMemoryCachingRepository(source)
     }
 
     @Test

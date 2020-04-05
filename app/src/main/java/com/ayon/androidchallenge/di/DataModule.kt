@@ -1,7 +1,7 @@
 package com.ayon.androidchallenge.di
 
 import com.ayon.androidchallenge.domain.MockData
-import com.ayon.repository.DataSource
+import com.ayon.repository.datasource.DataSource
 import dagger.Module
 import dagger.Provides
 import io.reactivex.Observable
@@ -24,6 +24,6 @@ class DataModule {
     @Provides
     @Singleton
     fun provideCachingRepositoryForMockData(source: DataSource<MockData>): com.ayon.repository.Repository<MockData>
-            = com.ayon.repository.SingleSourceCachingRepository(source)
+            = com.ayon.repository.InMemoryCachingRepository(source)
 
 }
