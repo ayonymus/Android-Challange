@@ -13,6 +13,7 @@ import dagger.multibindings.IntoMap
 @Module(
     includes = [
         MarvelDataModule::class,
+        MarvelNetworkModule::class,
         ViewModelModule::class ]
 )
 abstract class MarvelModule {

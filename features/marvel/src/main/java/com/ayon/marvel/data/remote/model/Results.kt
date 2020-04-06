@@ -1,0 +1,33 @@
+package com.ayon.marvel.data.remote.model
+ class Results (
+
+	val id : String,
+	val digitalId : String,
+	val title : String,
+	val issueNumber : String,
+	val variantDescription : String,
+	val description : String,
+	val modified : String,
+	val isbn : String,
+	val upc : String,
+	val diamondCode : String,
+	val ean : String,
+	val issn : String,
+	val format : String,
+	val pageCount : String,
+	val textObjects : List<TextObjects>,
+	val resourceURI : String,
+	val urls : List<Urls>,
+	val series : Series,
+	val variants : List<Variants>,
+	val collections : List<Collections>,
+	val collectedIssues : List<CollectedIssues>,
+	val dates : List<Dates>,
+	val prices : List<Prices>,
+	val thumbnail : Thumbnail,
+	val images : List<Images>,
+	val creators : Creators,
+	val characters : Characters,
+	val stories : Stories,
+	val events : Events
+)

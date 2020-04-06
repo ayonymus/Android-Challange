@@ -1,6 +1,7 @@
 package com.ayon.marvel.di
 
 import com.ayon.marvel.data.remote.ComicsApiDataSource
+import com.ayon.marvel.data.remote.api.MarvelApi
 import com.ayon.marvel.domain.model.Comic
 import com.ayon.repository.InMemoryCachingRepository
 import com.ayon.repository.Repository
@@ -12,8 +13,8 @@ import dagger.Provides
 class MarvelDataModule {
 
     @Provides
-    fun provideComicsDataSource(): DataSource<List<Comic>> {
-        return ComicsApiDataSource()
+    fun provideComicsDataSource(comicsApi: MarvelApi): DataSource<List<Comic>> {
+        return ComicsApiDataSource(comicsApi)
     }
 
     @Provides
