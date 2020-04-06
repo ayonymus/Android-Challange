@@ -5,6 +5,7 @@ import com.ayon.marvel.domain.model.Comic
 import com.ayon.marvel.domain.model.DataState
 import com.ayon.repository.Repository
 import io.reactivex.Observable
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -17,8 +18,12 @@ class GetComics @Inject constructor(private val repository: Repository<List<Comi
         return repository.getData()
             .map<DataState> { DataState.Success(it) }
             .startWith(DataState.Loading)
-            .onErrorReturn { DataState.Failure(it) }
+            .onErrorReturn {
+                Timber.e(it)
+                DataState.Failure(it)
+            }
             .subscribeOn(schedulers.io())
             .observeOn(schedulers.ui())
+            .doOnNext { Timber.d(it.toString()) }
     }
 }

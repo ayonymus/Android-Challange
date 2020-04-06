@@ -1,6 +1,6 @@
 
-include ':app',
-        ':features:marvel',
-        ':features:mockfeature',
-        ':libraries:core',
-        ':libraries:repository'
+include ':app'
+include ':features:marvel'
+include ':features:mockfeature'
+include ':libraries:core'
+include ':libraries:repository'

@@ -62,7 +62,7 @@ class MarvelFragment: DaggerFragment() {
 
     private fun displayData(data: List<Comic>) {
         Timber.v(data.toString())
-        mainSection.update(data.map { SingleTextItem(it.title) })
+        mainSection.update(data.map { ComicItem(it) })
         groupAdapter.notifyDataSetChanged()
     }
 

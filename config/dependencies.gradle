@@ -3,7 +3,7 @@ ext {
     Sdk = [
             compileSdk : 29,
             buildTools : '29.0.2',
-            minSdk     : 21,
+            minSdk     : 23,
             targetSdk  : 29,
 
             javaVersion: JavaVersion.VERSION_1_8
@@ -23,6 +23,7 @@ ext {
             dagger: '2.23.2',
             groupie: '2.7.2',
             okhttp: '3.10.0',
+            picasso: '2.71828',
             retrofit: '2.6.0',
             rxjava: '2.1.10',
             rxandroid: '2.1.1',
@@ -73,6 +74,7 @@ ext {
     Libs = [
             groupie:            "com.xwray:groupie:$Ver.groupie",
             groupie_ext:        "com.xwray:groupie-kotlin-android-extensions:$Ver.groupie",
+            picasso:            "com.squareup.picasso:picasso:$Ver.picasso"
     ]
 
     Debug = [

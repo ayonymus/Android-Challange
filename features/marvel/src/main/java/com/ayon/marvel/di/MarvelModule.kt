@@ -25,4 +25,5 @@ abstract class MarvelModule {
     @IntoMap
     @ViewModelKey(MarvelFragmentViewModel::class)
     abstract fun bindMainViewModel(viewModel: MarvelFragmentViewModel): ViewModel
+    
 }

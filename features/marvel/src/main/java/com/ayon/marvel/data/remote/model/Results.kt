@@ -1,12 +1,12 @@
 package com.ayon.marvel.data.remote.model
- class Results (
+data class Results (
 
 	val id : String,
 	val digitalId : String,
 	val title : String,
 	val issueNumber : String,
 	val variantDescription : String,
-	val description : String,
+	val description : String?,
 	val modified : String,
 	val isbn : String,
 	val upc : String,

@@ -16,7 +16,8 @@ class ComicsApiDataSource @Inject constructor(private val api: MarvelApi): DataS
         api.getComics()
             .map { comics ->
                 Timber.v(comics.toString())
-                comics.data.results.map { comic -> Comic(comic.title, comic.thumbnail.toString()) }
+                comics.data.results.map { comic -> Comic(comic.title, comic.description,
+                    comic.thumbnail.toString()) }
             }
 
 

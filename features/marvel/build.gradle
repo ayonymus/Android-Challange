@@ -61,16 +61,17 @@ dependencies {
     implementation "$Rx.java"
     implementation "$Rx.android"
 
-    // recycler
-    implementation "$Libs.groupie"
-    implementation "$Libs.groupie_ext"
-
     // network
     implementation "$Retrofit.retrofit2"
     implementation "$Retrofit.retrofit2_rx"
     implementation "$Retrofit.retrofit2_gson"
     implementation "$Retrofit.okhttp3"
 
+    // recycler
+    implementation "$Libs.groupie"
+    implementation "$Libs.groupie_ext"
+
+    implementation "$Libs.picasso"
     implementation "$Debug.timber"
 
     testImplementation "$TestLibs.junit"
