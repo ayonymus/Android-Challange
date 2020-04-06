@@ -1,5 +1,6 @@
 package com.ayon.marvel.domain.usecase
 
+import com.ayon.core.rx.TestSchedulerProvider
 import com.ayon.marvel.domain.model.Comic
 import com.ayon.marvel.domain.model.DataState
 import com.ayon.repository.Repository
@@ -23,12 +24,12 @@ class GetComicsTest {
 
     @Before
     fun setUp() {
-        getComics = GetComics(repository)
+        getComics = GetComics(repository, TestSchedulerProvider())
     }
 
     @Test
     fun `given repository data when invoked then return observable with loading and data`() {
-        val testObservable = getComics.invoke().test()
+        val testObservable = getComics().test()
 
         testObservable.assertComplete()
         testObservable.assertValues(DataState.Loading, DataState.Success(data))
@@ -40,7 +41,7 @@ class GetComicsTest {
         val exception = IOException()
         whenever(repository.getData()).doReturn(Observable.error(exception))
 
-        val testObservable = getComics.invoke().test()
+        val testObservable = getComics().test()
 
         testObservable.assertValues(DataState.Loading, DataState.Failure(exception))
     }

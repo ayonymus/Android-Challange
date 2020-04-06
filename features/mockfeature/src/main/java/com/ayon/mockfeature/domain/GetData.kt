@@ -1,7 +1,5 @@
 package com.ayon.mockfeature.domain
 
-import com.ayon.mockfeature.domain.DataState
-import com.ayon.mockfeature.domain.MockData
 import com.ayon.repository.Repository
 import io.reactivex.Observable
 import javax.inject.Inject

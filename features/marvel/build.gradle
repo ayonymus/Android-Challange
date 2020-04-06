@@ -3,6 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+Properties properties = new Properties()
+if (project.file('local.properties').canRead()) {
+    properties.load(project.file("local.properties").newDataInputStream())
+}
+
 android {
     compileSdkVersion Sdk.compileSdk
     buildToolsVersion Sdk.buildTools
@@ -13,6 +18,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'MARVEL_KEY', properties.getProperty('marvel_key', 'key not set"')
+        buildConfigField 'String', 'MARVEL_PRIVATE_KEY', properties.getProperty('marvel_private_key', 'key not set"')
     }
 
     compileOptions {
@@ -26,6 +34,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {

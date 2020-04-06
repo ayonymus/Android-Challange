@@ -1,8 +1,6 @@
 package com.ayon.mockfeature.domain
 
-import com.ayon.mockfeature.domain.DataState
-import com.ayon.mockfeature.domain.GetData
-import com.ayon.mockfeature.domain.MockData
+import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable

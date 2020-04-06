@@ -5,7 +5,6 @@ import com.ayon.mockfeature.presentation.MockFragment
 import com.ayon.mockfeature.presentation.MockFragmentViewModel
 import com.ayon.core.di.ViewModelKey
 import com.ayon.core.di.ViewModelModule
-import com.ayon.mockfeature.di.MockDataModule
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

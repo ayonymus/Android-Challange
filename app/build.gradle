@@ -32,6 +32,7 @@ android {
 
 dependencies {
     // modules
+    implementation project(':features:marvel')
     implementation project(':features:mockfeature')
     implementation project(':libraries:core')
     implementation project(':libraries:repository')

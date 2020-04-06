@@ -40,6 +40,10 @@ dependencies {
     implementation "$Dagger.dagger"
     implementation "$Dagger.android_support"
 
+    // rx
+    implementation "$Rx.java"
+    implementation "$Rx.android"
+
     implementation "$Libs.groupie"
     implementation "$Libs.groupie_ext"
 

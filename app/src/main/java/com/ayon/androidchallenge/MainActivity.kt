@@ -2,7 +2,7 @@ package com.ayon.androidchallenge
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.ayon.mockfeature.presentation.MockFragment
+import com.ayon.marvel.presentation.MarvelFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     private fun showMainFragment() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container,
-                MockFragment(), null)
+                MarvelFragment(), null)
             .commit()
     }
 }
