@@ -34,7 +34,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
@@ -42,14 +44,11 @@ dependencies {
     implementation project(':libraries:repository')
 
     implementation "$And.constraintlayout"
+    implementation "$And.core_ktx"
     implementation "$And.recyclerview"
     implementation "$And.lifecycle_ext"
     implementation "$And.lifecycle_reacitve"
     implementation "$And.material"
-
-    // android x
-    implementation "$And.lifecycle_ext"
-    implementation "$And.lifecycle_reacitve"
 
     // dagger
     kapt "$Dagger.compiler"

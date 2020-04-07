@@ -15,27 +15,28 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import dagger.android.support.DaggerFragment
-import kotlinx.android.synthetic.main.fragment_marvel.*
+import kotlinx.android.synthetic.main.fragment_comic_list.*
 import timber.log.Timber
 import javax.inject.Inject
 
-class MarvelFragment: DaggerFragment() {
+class ComicListMarvelFragment: DaggerFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var viewModel: MarvelFragmentViewModel
+    private lateinit var viewModel: ComicListViewModel
 
     private val groupAdapter = GroupAdapter<GroupieViewHolder>()
     private val mainSection = Section()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(MarvelFragmentViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ComicListViewModel::class.java)
+        groupAdapter.add(mainSection)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_marvel, container, false)
+        return inflater.inflate(R.layout.fragment_comic_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,8 +45,10 @@ class MarvelFragment: DaggerFragment() {
             adapter = groupAdapter
         }
         // this is displayed until no other items are added to section
-        mainSection.setPlaceholder(SingleTextItem(getString(R.string.loading)))
-        groupAdapter.add(mainSection)
+        mainSection.apply {
+            setHeader(ComicHeaderItem())
+            setPlaceholder(SingleTextItem(getString(R.string.loading)))
+        }
     }
 
     override fun onResume() {
@@ -62,8 +65,18 @@ class MarvelFragment: DaggerFragment() {
 
     private fun displayData(data: List<Comic>) {
         Timber.v(data.toString())
-        mainSection.update(data.map { ComicItem(it) })
+        mainSection.update(data.map { ComicItem(it, ::startDetailsFragment) })
         groupAdapter.notifyDataSetChanged()
+    }
+
+    private fun startDetailsFragment(comic: Comic) {
+        activity?.apply {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, ComicDetailsFragment.newInstance(comic), "")
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     private fun showLoading() {

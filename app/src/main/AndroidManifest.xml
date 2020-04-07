@@ -12,9 +12,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-            android:usesCleartextTraffic="true"
-        >
-        <activity android:name=".MainActivity">
+            android:usesCleartextTraffic="true">
+        <activity android:name="com.ayon.marvel.presentation.MarvelActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

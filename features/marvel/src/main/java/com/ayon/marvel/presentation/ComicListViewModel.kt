@@ -15,7 +15,7 @@ import javax.inject.Inject
  * Some integration testing could be written with Espresso without mocking this class out
  *
  */
-class MarvelFragmentViewModel @Inject constructor(getComics: GetComics): ViewModel() {
+class ComicListViewModel @Inject constructor(getComics: GetComics): ViewModel() {
 
     private val liveData = LiveDataReactiveStreams.fromPublisher(
         getComics().toFlowable(BackpressureStrategy.BUFFER))

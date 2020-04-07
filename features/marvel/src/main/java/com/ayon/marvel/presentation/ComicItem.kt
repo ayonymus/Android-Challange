@@ -7,7 +7,9 @@ import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.item_comic.view.*
 
-class ComicItem(val comic: Comic): Item() {
+class ComicItem(private val comic: Comic,
+                private val onClick: (comic: Comic) -> Unit
+): Item() {
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.apply {
@@ -18,6 +20,7 @@ class ComicItem(val comic: Comic): Item() {
 
             textView_comic_title.text = comic.title
             textView_comic_description.text = comic.description
+            setOnClickListener { onClick(comic) }
         }
     }
 

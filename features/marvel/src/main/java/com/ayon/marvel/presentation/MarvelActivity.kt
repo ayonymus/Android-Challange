@@ -1,21 +1,21 @@
-package com.ayon.androidchallenge
+package com.ayon.marvel.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.ayon.marvel.presentation.MarvelFragment
+import androidx.appcompat.app.AppCompatActivity
+import com.ayon.marvel.R
 
-class MainActivity : AppCompatActivity() {
+class MarvelActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_fragment_container)
         showMainFragment()
     }
 
     private fun showMainFragment() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container,
-                MarvelFragment(), null)
+                ComicListMarvelFragment(), null)
             .commit()
     }
 }
