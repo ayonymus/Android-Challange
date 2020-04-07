@@ -3,6 +3,7 @@ package com.ayon.repository
 import com.ayon.repository.datasource.DataSource
 import com.ayon.repository.datasource.StorageDataSource
 import io.reactivex.Observable
+import timber.log.Timber
 
 /**
  * Repository that checks 2 sources for data in the following order:
@@ -18,19 +19,28 @@ class StorageRepository<T>(
 ) : Repository<T> {
 
     override fun getData(refresh: Boolean): Observable<T> {
-        return storage.getData()
-            .isEmpty()
-            .flatMapObservable { isEmpty ->
-                when {
-                    isEmpty -> getRemoteDataAndStore()
-                    !isEmpty && refresh ->
-                        getRemoteDataAndStore()
-                            .startWith(storage.getData())
-                    else -> storage.getData()
+        return if(refresh) {
+            Timber.v("Refreshing data")
+            getRemoteDataAndStore()
+        }
+        else {
+            storage.getData()
+                .flatMap { result ->
+                    when (result) {
+                        is StorageState.Empty<T> -> getRemoteDataAndStore()
+                        is StorageState.Data<T> -> {
+                            Timber.v("Local data")
+                            Observable.just(result.data)
+                        }
+                    }
                 }
-            }
+
+        }
     }
 
     private fun getRemoteDataAndStore() = remote.getData()
-        .doOnNext { storage.storeData(it) }
+        .flatMap {
+            storage.clear()
+                .andThen(storage.storeData(it))
+                .andThen(Observable.just(it)) }
 }

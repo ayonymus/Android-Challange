@@ -31,11 +31,17 @@ android {
 }
 
 dependencies {
+
     // modules
     implementation project(':features:marvel')
     implementation project(':features:mockfeature')
     implementation project(':libraries:core')
     implementation project(':libraries:repository')
+
+    implementation "$And.room"
+    implementation "$And.room_rx"
+    kapt "$And.room_compiler"
+
 
     // dagger
     kapt "$Dagger.compiler"

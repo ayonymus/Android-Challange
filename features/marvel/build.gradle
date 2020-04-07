@@ -50,6 +50,10 @@ dependencies {
     implementation "$And.lifecycle_reacitve"
     implementation "$And.material"
 
+    implementation "$And.room"
+    implementation "$And.room_rx"
+    kapt "$And.room_compiler"
+
     // dagger
     kapt "$Dagger.compiler"
     kapt "$Dagger.android"
