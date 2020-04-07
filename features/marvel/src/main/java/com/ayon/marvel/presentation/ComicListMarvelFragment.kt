@@ -1,6 +1,8 @@
 package com.ayon.marvel.presentation
 
 import android.os.Bundle
+import android.transition.*
+import android.transition.TransitionSet.ORDERING_TOGETHER
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,14 +26,13 @@ class ComicListMarvelFragment: DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var viewModel: ComicListViewModel
+    private val viewModel by lazy { ViewModelProvider(this, viewModelFactory).get(ComicListViewModel::class.java) }
 
     private val groupAdapter = GroupAdapter<GroupieViewHolder>()
     private val mainSection = Section()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ComicListViewModel::class.java)
         groupAdapter.add(mainSection)
     }
 
@@ -69,11 +70,18 @@ class ComicListMarvelFragment: DaggerFragment() {
         groupAdapter.notifyDataSetChanged()
     }
 
-    private fun startDetailsFragment(comic: Comic) {
+    private fun startDetailsFragment(comic: Comic, picture: View) {
+        val details = ComicDetailsFragment.newInstance(comic, picture.transitionName).apply {
+            sharedElementEnterTransition = createTransitionSet()
+            enterTransition = Fade()
+            exitTransition = Fade()
+            sharedElementReturnTransition = createTransitionSet()
+        }
+
         activity?.apply {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragment_container, ComicDetailsFragment.newInstance(comic), "")
+            supportFragmentManager.beginTransaction()
+                .addSharedElement(picture, picture.transitionName)
+                .replace(R.id.fragment_container, details)
                 .addToBackStack(null)
                 .commit()
         }
@@ -84,8 +92,14 @@ class ComicListMarvelFragment: DaggerFragment() {
     }
 
     private fun showError() {
-        // TODO
         Timber.v("Error")
+    }
+
+    private fun createTransitionSet(): TransitionSet = TransitionSet().apply {
+         ordering = ORDERING_TOGETHER
+         addTransition(ChangeBounds())
+         addTransition(ChangeTransform())
+         addTransition(ChangeImageTransform())
     }
 
 }

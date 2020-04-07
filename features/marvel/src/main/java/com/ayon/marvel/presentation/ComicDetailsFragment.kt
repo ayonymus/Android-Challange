@@ -17,6 +17,11 @@ class ComicDetailsFragment: Fragment() {
         return inflater.inflate(R.layout.fragment_comic_details, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        imageView_comic_details_thumbnail.transitionName = transition
+    }
+
     override fun onResume() {
         super.onResume()
         populateFields()
@@ -36,11 +41,15 @@ class ComicDetailsFragment: Fragment() {
     private val comic: Comic?
         get() = arguments?.getParcelable(KEY_COMIC)
 
+    private val transition: String?
+        get() = arguments?.getString(KEY_TRANSITION)
+
     companion object {
         private const val KEY_COMIC = "key_comic"
+        private const val KEY_TRANSITION = "key_position"
 
-        fun newInstance(comic: Comic) = ComicDetailsFragment().apply {
-            arguments = bundleOf(KEY_COMIC to comic)
+        fun newInstance(comic: Comic, transitionName: String) = ComicDetailsFragment().apply {
+            arguments = bundleOf(KEY_COMIC to comic, KEY_TRANSITION to transitionName)
         }
     }
 }

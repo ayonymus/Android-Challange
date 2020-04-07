@@ -42,7 +42,6 @@ dependencies {
     implementation "$And.room_rx"
     kapt "$And.room_compiler"
 
-
     // dagger
     kapt "$Dagger.compiler"
     kapt "$Dagger.android"
@@ -62,7 +61,5 @@ dependencies {
     androidTestImplementation "$TestLibs.android_test_runner"
     androidTestImplementation "$TestLibs.espresso"
 
-    // quality tools
-    debugImplementation "$Debug.leak"
     implementation "$Debug.timber"
 }
