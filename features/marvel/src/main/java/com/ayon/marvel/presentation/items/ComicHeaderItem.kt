@@ -1,4 +1,4 @@
-package com.ayon.marvel.presentation
+package com.ayon.marvel.presentation.items
 
 import com.ayon.marvel.R
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder

@@ -6,6 +6,7 @@ import android.transition.TransitionSet.ORDERING_TOGETHER
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,8 @@ import com.ayon.core.view.listitems.SingleTextItem
 import com.ayon.marvel.R
 import com.ayon.marvel.domain.model.Comic
 import com.ayon.marvel.domain.model.DataState
+import com.ayon.marvel.presentation.items.ComicHeaderItem
+import com.ayon.marvel.presentation.items.ComicItem
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
@@ -66,7 +69,12 @@ class ComicListMarvelFragment: DaggerFragment() {
 
     private fun displayData(data: List<Comic>) {
         Timber.v(data.toString())
-        mainSection.update(data.map { ComicItem(it, ::startDetailsFragment) })
+        mainSection.update(data.map {
+            ComicItem(
+                it,
+                ::startDetailsFragment
+            )
+        })
         groupAdapter.notifyDataSetChanged()
     }
 
@@ -93,6 +101,8 @@ class ComicListMarvelFragment: DaggerFragment() {
 
     private fun showError() {
         Timber.v("Error")
+        Toast.makeText(context, R.string.error, Toast.LENGTH_SHORT).show()
+
     }
 
     private fun createTransitionSet(): TransitionSet = TransitionSet().apply {

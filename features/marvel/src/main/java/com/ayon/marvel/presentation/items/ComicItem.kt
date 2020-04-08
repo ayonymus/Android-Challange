@@ -1,4 +1,4 @@
-package com.ayon.marvel.presentation
+package com.ayon.marvel.presentation.items
 
 import android.view.View
 import com.ayon.marvel.R
